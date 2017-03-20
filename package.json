@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "survey-react": "^0.12.4",
+    "surveyjs-editor": "^0.12.4"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",
