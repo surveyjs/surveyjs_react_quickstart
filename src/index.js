@@ -1,13 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import App from './containers/App';
-import configureStore from './store'
-import './styles/index.css';
+import { ConnectedRouter } from 'react-router-redux'
+import store, { history } from './store'
+import App from './containers/app'
 
-const store = configureStore({} || undefined);
+import 'sanitize.css/sanitize.css'
+import './index.css'
 
-ReactDOM.render(
-  <Provider store={store}> <App /> </Provider>,
-  document.getElementById('root')
-);
+const target = document.querySelector('#root')
+
+render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+        <App />
+      </div>
+    </ConnectedRouter>
+  </Provider>,
+  target
+)

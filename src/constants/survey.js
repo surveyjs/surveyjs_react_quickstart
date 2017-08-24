@@ -1,1 +1,0 @@
-export const COMPLETE_SURVEY = 'COMPLETE_SURVEY';
