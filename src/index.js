@@ -5,7 +5,7 @@ import App from './containers/App';
 import configureStore from './store'
 import './styles/index.css';
 
-const store = configureStore(this.props.initialState || undefined);
+const store = configureStore({} || undefined);
 
 ReactDOM.render(
   <Provider store={store}> <App /> </Provider>,

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import surveyjs from './surveyjs'
+import survey from './survey'
 
 export default combineReducers({
-    surveyjs
+    survey
 });
