@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import * as Survey from 'survey-react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import 'survey-react/survey.css';
 import SurveyEditor from './SurveyEditor';
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import * as surveyActions from '../actions/surveyActions'
 
 class App extends Component {
   json = { title: 'Product Feedback Survey Example', showProgressBar: 'top', pages: [
@@ -114,6 +117,8 @@ class App extends Component {
   };
 
   render() {
+    const { surveyjsState } = this.props;
+
     Survey.Survey.cssType = "bootstrap";
     var model = new Survey.Model(this.json);
     return (
@@ -136,4 +141,16 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    surveyjsState: state.surveyjs
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    surveyActions: bindActionCreators(surveyActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
