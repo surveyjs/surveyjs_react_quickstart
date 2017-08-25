@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import { push } from 'react-router-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import {
+  setData,
+  setCompleteFlag
+} from '../../modules/survey'
 import * as SurveyJS from 'survey-react';
 import 'survey-react/survey.css';
 
@@ -110,11 +117,35 @@ const json = { title: 'Product Feedback Survey Example', showProgressBar: 'top',
 
 var model = new SurveyJS.Model(json);
 
-const Survey = () => (
+const onValueChanged = (props, model) => {
+  props.setData(model.data)
+}
+
+const onComplete = (props, model) => {
+  props.setCompleteFlag(true)
+}
+
+const Survey = props => (
   <div>
     <h1>SurveyJS</h1>
-    <SurveyJS.Survey model={model}/>
+    <SurveyJS.Survey 
+      model={model}
+      onComplete={ (model, options) => {onComplete(props, model)} }
+      onValueChanged={ (model, options) => {onValueChanged(props, model)} }
+    />
   </div>
 )
 
-export default Survey
+const mapStateToProps = state => ({
+  data: state.survey.data
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  setData,
+  setCompleteFlag
+}, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Survey)
