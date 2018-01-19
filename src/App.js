@@ -5,15 +5,75 @@ import SurveyEditor from "./SurveyEditor";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+
+import "jquery-ui/themes/base/all.css";
+import "nouislider/distribute/nouislider.css";
+import "select2/dist/css/select2.css";
+import "bootstrap-slider/dist/css/bootstrap-slider.css";
+
+import $ from "jquery";
+import "jquery-ui/ui/widgets/datepicker.js";
+import "select2/dist/js/select2.js";
+
 import * as widgets from "surveyjs-widgets";
 
+widgets.icheck(Survey, $);
+widgets.select2(Survey, $);
+widgets.imagepicker(Survey, $);
+widgets.inputmask(Survey);
+widgets.jquerybarrating(Survey, $);
+widgets.jqueryuidatepicker(Survey, $);
+widgets.nouislider(Survey);
+widgets.select2tagbox(Survey, $);
 widgets.signaturepad(Survey);
+widgets.sortablejs(Survey);
+widgets.ckeditor(Survey);
+widgets.autocomplete(Survey, $);
+widgets.bootstrapslider(Survey);
 
 class App extends Component {
   json = {
     title: "Product Feedback Survey Example",
     showProgressBar: "top",
     pages: [
+      {
+        elements: [
+          {
+            type: "bootstrapslider",
+            name: "bootstrapslider"
+          },
+          {
+            type: "dropdown",
+            renderAs: "select2",
+            choicesByUrl: {
+              url: "https://restcountries.eu/rest/v1/all"
+            },
+            name: "countries",
+            title: "Please select the country you have arrived from:"
+          },
+          {
+            type: "signaturepad",
+            name: "sign",
+            title: "Please enter your signature"
+          },
+          {
+            type: "sortablelist",
+            name: "lifepriopity",
+            title: "Life Priorities ",
+            isRequired: true,
+            colCount: 0,
+            choices: ["family", "work", "pets", "travels", "games"]
+          },
+          {
+            name: "date",
+            type: "datepicker",
+            inputType: "date",
+            title: "Your favorite date:",
+            dateFormat: "mm/dd/yy",
+            isRequired: true
+          }
+        ]
+      },
       {
         questions: [
           {
