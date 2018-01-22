@@ -10,10 +10,12 @@ import "jquery-ui/themes/base/all.css";
 import "nouislider/distribute/nouislider.css";
 import "select2/dist/css/select2.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css";
+import 'image-picker/image-picker/image-picker.css';
 
 import $ from "jquery";
 import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
+import "image-picker/image-picker/image-picker.js";
 
 import * as widgets from "surveyjs-widgets";
 
@@ -39,6 +41,26 @@ class App extends Component {
       {
         elements: [
           {
+            "type": "imagepicker",
+            "name": "choosepicture",
+            "title": "What animal would you like to see first ?",
+            "choices": [
+                {
+                    "value": "lion",
+                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/lion.jpg"
+                }, {
+                    "value": "giraffe",
+                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/giraffe.jpg"
+                }, {
+                    "value": "panda",
+                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/panda.jpg"
+                }, {
+                    "value": "camel",
+                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/camel.jpg"
+                }
+            ]
+        },
+        {
             type: "bootstrapslider",
             name: "bootstrapslider"
           },
