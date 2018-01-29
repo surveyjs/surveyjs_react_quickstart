@@ -7,10 +7,12 @@ import "jquery-ui/themes/base/all.css";
 import "nouislider/distribute/nouislider.css";
 import "select2/dist/css/select2.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css";
+import 'image-picker/image-picker/image-picker.css';
 
 import $ from "jquery";
 import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
+import "image-picker/image-picker/image-picker.js";
 
 import * as widgets from "surveyjs-widgets";
 
