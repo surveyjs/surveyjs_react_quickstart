@@ -203,6 +203,14 @@ class App extends Component {
     ]
   };
 
+  onValueChanged(result) {
+    console.log("value changed!");
+  }
+
+  onComplete(result) {
+    console.log("Complete! " + result);
+  }
+
   render() {
     Survey.Survey.cssType = "bootstrap";
     var model = new Survey.Model(this.json);
@@ -215,7 +223,7 @@ class App extends Component {
         <div className="surveyjs">
           {/*If you want to show survey, uncomment the line below*/}
           <h1>SurveyJS library in action:</h1>
-          <Survey.Survey model={model} />
+          <Survey.Survey model={model} onComplete={this.onComplete} onValueChanged={this.onValueChanged}/>
           {/*If you want to show survey editor, uncomment the line below*/}
           <h1>SurveyJS Editor in action:</h1>
           <SurveyEditor />
