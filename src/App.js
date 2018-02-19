@@ -12,10 +12,13 @@ import "select2/dist/css/select2.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css";
 import 'image-picker/image-picker/image-picker.css';
 
+import "jquery-bar-rating/dist/themes/css-stars.css";
+
 import $ from "jquery";
 import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
 import "image-picker/image-picker/image-picker.js";
+import "jquery-bar-rating";
 
 import * as widgets from "surveyjs-widgets";
 
@@ -40,6 +43,13 @@ class App extends Component {
     pages: [
       {
         elements: [
+          {
+            "type": "barrating",
+            "name": "barrating1",
+            "ratingTheme": "css-stars",
+            "title": "Please rate the movie you've just watched",
+            "choices": ["1", "2", "3", "4", "5"]
+          },
           {
             "type": "imagepicker",
             "name": "choosepicture",
