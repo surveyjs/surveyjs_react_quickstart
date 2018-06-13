@@ -1,7 +1,7 @@
 # React + SurveyJS/SurveyJS_Editor QuickStart Source
 [![Build Status][travis-badge]][travis-badge-url]
 
-This repository holds the source code of the [survey.io quickstart with React](https://surveyjs.io/) 
+This repository holds the source code of the [surveyjs.io quickstart with React](https://surveyjs.io/) 
 and potentially a good starting point for your application.
 
 It's been extended with testing support so you can start writing tests immediately.
