@@ -10,7 +10,7 @@ import "jquery-ui/themes/base/all.css";
 import "nouislider/distribute/nouislider.css";
 import "select2/dist/css/select2.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css";
-import 'image-picker/image-picker/image-picker.css';
+import "image-picker/image-picker/image-picker.css";
 
 import "jquery-bar-rating/dist/themes/css-stars.css";
 
@@ -44,33 +44,40 @@ class App extends Component {
       {
         elements: [
           {
-            "type": "barrating",
-            "name": "barrating1",
-            "ratingTheme": "css-stars",
-            "title": "Please rate the movie you've just watched",
-            "choices": ["1", "2", "3", "4", "5"]
+            type: "barrating",
+            name: "barrating1",
+            ratingTheme: "css-stars",
+            title: "Please rate the movie you've just watched",
+            choices: ["1", "2", "3", "4", "5"]
           },
           {
-            "type": "imagepicker",
-            "name": "choosepicture",
-            "title": "What animal would you like to see first ?",
-            "choices": [
-                {
-                    "value": "lion",
-                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/lion.jpg"
-                }, {
-                    "value": "giraffe",
-                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/giraffe.jpg"
-                }, {
-                    "value": "panda",
-                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/panda.jpg"
-                }, {
-                    "value": "camel",
-                    "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/camel.jpg"
-                }
+            type: "imagepicker",
+            name: "choosepicture",
+            title: "What animal would you like to see first ?",
+            choices: [
+              {
+                value: "lion",
+                imageLink:
+                  "https://surveyjs.io/Content/Images/examples/image-picker/lion.jpg"
+              },
+              {
+                value: "giraffe",
+                imageLink:
+                  "https://surveyjs.io/Content/Images/examples/image-picker/giraffe.jpg"
+              },
+              {
+                value: "panda",
+                imageLink:
+                  "https://surveyjs.io/Content/Images/examples/image-picker/panda.jpg"
+              },
+              {
+                value: "camel",
+                imageLink:
+                  "https://surveyjs.io/Content/Images/examples/image-picker/camel.jpg"
+              }
             ]
-        },
-        {
+          },
+          {
             type: "bootstrapslider",
             name: "bootstrapslider"
           },
@@ -255,7 +262,11 @@ class App extends Component {
         <div className="surveyjs">
           {/*If you want to show survey, uncomment the line below*/}
           <h1>SurveyJS library in action:</h1>
-          <Survey.Survey model={model} onComplete={this.onComplete} onValueChanged={this.onValueChanged}/>
+          <Survey.Survey
+            model={model}
+            onComplete={this.onComplete}
+            onValueChanged={this.onValueChanged}
+          />
           {/*If you want to show survey editor, uncomment the line below*/}
           <h1>SurveyJS Editor in action:</h1>
           <SurveyEditor />
