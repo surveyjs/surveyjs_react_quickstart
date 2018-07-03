@@ -242,6 +242,11 @@ class App extends Component {
     ]
   };
 
+  componentWillMount() {
+    import("icheck");
+    window["$"] = window["jQuery"] = $;
+  }
+
   onValueChanged(result) {
     console.log("value changed!");
   }
