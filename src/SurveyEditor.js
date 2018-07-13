@@ -15,7 +15,6 @@ import "jquery-bar-rating/dist/themes/fontawesome-stars.css";
 import $ from "jquery";
 import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
-import "image-picker/image-picker/image-picker.js";
 import "jquery-bar-rating";
 
 import "icheck/skins/square/blue.css";
@@ -24,7 +23,6 @@ import * as widgets from "surveyjs-widgets";
 
 widgets.icheck(SurveyKo, $);
 widgets.select2(SurveyKo, $);
-widgets.imagepicker(SurveyKo, $);
 widgets.inputmask(SurveyKo);
 widgets.jquerybarrating(SurveyKo, $);
 widgets.jqueryuidatepicker(SurveyKo, $);
