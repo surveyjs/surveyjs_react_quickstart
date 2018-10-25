@@ -48,7 +48,7 @@ class App extends Component {
   //or 
   // model.mode="display"
   // <Survey.Survey model={model}/>
-  // You may change model properties after rendering. If needed react Survey Component will change its behavior and change UI
+  // You may change model properties outside render function. If needed react Survey Component will change its behavior and change UI
  }
 } 
 ```
