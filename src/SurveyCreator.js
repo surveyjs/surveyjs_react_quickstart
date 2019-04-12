@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import * as SurveyJSEditor from "surveyjs-editor";
+import * as SurveyJSCreator from "surveyjs-creator";
 import * as SurveyKo from "survey-knockout";
-import "surveyjs-editor/surveyeditor.css";
+import "survey-creator/survey-creator.css";
 
 import "jquery-ui/themes/base/all.css";
 import "nouislider/distribute/nouislider.css";
@@ -33,22 +33,22 @@ widgets.ckeditor(SurveyKo);
 widgets.autocomplete(SurveyKo, $);
 widgets.bootstrapslider(SurveyKo);
 
-class SurveyEditor extends Component {
-  editor;
+class SurveyCreator extends Component {
+  surveyCreator;
   componentDidMount() {
-    let editorOptions = { showEmbededSurveyTab: true };
-    this.editor = new SurveyJSEditor.SurveyEditor(
-      "surveyEditorContainer",
-      editorOptions
+    let options = { showEmbededSurveyTab: true };
+    this.surveyCreator = new SurveyJSCreator.SurveyCreator(
+      "surveyCreatorContainer",
+      options
     );
-    this.editor.saveSurveyFunc = this.saveMySurvey;
+    this.surveyCreator.saveSurveyFunc = this.saveMySurvey;
   }
   render() {
-    return <div id="surveyEditorContainer" />;
+    return <div id="surveyCreatorContainer" />;
   }
   saveMySurvey = () => {
-    console.log(JSON.stringify(this.editor.text));
+    console.log(JSON.stringify(this.surveyCreator.text));
   };
 }
 
-export default SurveyEditor;
+export default SurveyCreator;

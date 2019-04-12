@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as Survey from "survey-react";
 import "survey-react/survey.css";
-import SurveyEditor from "./SurveyEditor";
+import SurveyCreator from "./SurveyCreator";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -269,9 +269,9 @@ class App extends Component {
             onComplete={this.onComplete}
             onValueChanged={this.onValueChanged}
           />
-          {/*If you want to show survey editor, uncomment the line below*/}
-          <h1>SurveyJS Editor in action:</h1>
-          <SurveyEditor />
+          {/*If you do not want to show Survey Creator, comment the line below*/}
+          <h1>SurveyJS Creator in action:</h1>
+          <SurveyCreator />
         </div>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
