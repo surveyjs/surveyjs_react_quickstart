@@ -20,6 +20,12 @@ import "jquery-bar-rating";
 
 import * as widgets from "surveyjs-widgets";
 
+import "icheck/skins/square/blue.css";
+window["$"] = window["jQuery"] = $;
+require("icheck");
+
+Survey.StylesManager.applyTheme("default");
+
 widgets.icheck(Survey, $);
 widgets.select2(Survey, $);
 widgets.inputmask(Survey);
@@ -40,6 +46,14 @@ class App extends Component {
     pages: [
       {
         elements: [
+          {
+            "type": "radiogroup",
+            "name": "position",
+            "title": "Choose job position...",
+            "isRequired": true,
+            "colCount": 0,
+            "choices": ["1|Designer", "2|Front-end Developer", "3|Back-end Developer", "4|Database Administrator", "5|System Engineer"]
+          },
           {
             type: "barrating",
             name: "barrating1",
@@ -238,11 +252,6 @@ class App extends Component {
       }
     ]
   };
-
-  componentWillMount() {
-    import("icheck");
-    window["$"] = window["jQuery"] = $;
-  }
 
   onValueChanged(result) {
     console.log("value changed!");
