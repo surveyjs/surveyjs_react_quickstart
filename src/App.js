@@ -262,7 +262,6 @@ class App extends Component {
   }
 
   render() {
-    Survey.Survey.cssType = "bootstrap";
     var model = new Survey.Model(this.json);
     return (
       <div className="App">
