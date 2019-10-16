@@ -24,6 +24,8 @@ import "icheck/skins/square/blue.css";
 window["$"] = window["jQuery"] = $;
 require("icheck");
 
+export {MyQuestion} from "./MyQuestion";
+
 Survey.StylesManager.applyTheme("default");
 
 widgets.icheck(Survey, $);
@@ -46,6 +48,11 @@ class App extends Component {
     pages: [
       {
         elements: [
+          {
+            "type": "myquestion",
+            "name": "cq1",
+            "text": "Some Text"
+          },
           {
             "type": "radiogroup",
             "name": "position",
