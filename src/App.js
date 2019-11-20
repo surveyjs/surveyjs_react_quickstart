@@ -18,13 +18,16 @@ import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
 import "jquery-bar-rating";
 
+import * as SurveyCore from "survey-core";
+import * as SurveyPDF from "survey-pdf";
 import * as widgets from "surveyjs-widgets";
 
 import "icheck/skins/square/blue.css";
 window["$"] = window["jQuery"] = $;
 require("icheck");
 
-export {MyQuestion} from "./MyQuestion";
+export { MyQuestion } from "./MyQuestion";
+
 
 Survey.StylesManager.applyTheme("default");
 
@@ -40,6 +43,19 @@ widgets.sortablejs(Survey);
 widgets.ckeditor(Survey);
 widgets.autocomplete(Survey, $);
 widgets.bootstrapslider(Survey);
+
+widgets.icheck(SurveyCore, $);
+widgets.select2(SurveyCore, $);
+widgets.inputmask(SurveyCore);
+widgets.jquerybarrating(SurveyCore, $);
+widgets.jqueryuidatepicker(SurveyCore, $);
+widgets.nouislider(SurveyCore);
+widgets.select2tagbox(SurveyCore, $);
+widgets.signaturepad(SurveyCore);
+widgets.sortablejs(SurveyCore);
+widgets.ckeditor(SurveyCore);
+widgets.autocomplete(SurveyCore, $);
+widgets.bootstrapslider(SurveyCore);
 
 class App extends Component {
   json = {
@@ -268,6 +284,12 @@ class App extends Component {
     console.log("Complete! " + result);
   }
 
+  savePDF = (model) => {
+    var surveyPDF = new SurveyPDF.SurveyPDF(this.json);
+    surveyPDF.data = model.data;
+    surveyPDF.save();
+  }
+
   render() {
     var model = new Survey.Model(this.json);
     return (
@@ -277,14 +299,17 @@ class App extends Component {
           <h2>Welcome to React with SurveyJS</h2>
         </div>
         <div className="surveyjs">
-          {/*If you want to show survey, uncomment the line below*/}
+          {/*If you do not want to show survey, comment the lines below*/}
           <h1>SurveyJS library in action:</h1>
           <Survey.Survey
             model={model}
             onComplete={this.onComplete}
             onValueChanged={this.onValueChanged}
           />
-          {/*If you do not want to show Survey Creator, comment the line below*/}
+          {/*If you do not want to show save PDF button, comment the lines below*/}
+          <h3>SurveyPDF export:</h3>
+          <button onClick={() => this.savePDF(model)}>Save PDF</button>
+          {/*If you do not want to show Survey Creator, comment the lines below*/}
           <h1>SurveyJS Creator in action:</h1>
           <SurveyCreator />
         </div>

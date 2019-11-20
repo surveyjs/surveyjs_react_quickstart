@@ -10,7 +10,8 @@
     "react-scripts": "1.1.4",
     "survey-react": "latest",
     "survey-creator": "latest",
-    "surveyjs-widgets": "latest"
+    "surveyjs-widgets": "latest",
+    "survey-pdf": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
