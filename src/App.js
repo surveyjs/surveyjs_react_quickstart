@@ -22,17 +22,19 @@ import * as SurveyCore from "survey-core";
 import * as SurveyPDF from "survey-pdf";
 import * as widgets from "surveyjs-widgets";
 
-import "icheck/skins/square/blue.css";
+import "pretty-checkbox/dist/pretty-checkbox.css";
+//import "icheck/skins/square/blue.css";
 window["$"] = window["jQuery"] = $;
-require("icheck");
+//require("icheck");
 
 export { MyQuestion } from "./MyQuestion";
 
 
 Survey.StylesManager.applyTheme("default");
 
-widgets.icheck(Survey, $);
-widgets.select2(Survey, $);
+//widgets.icheck(Survey, $);
+widgets.prettycheckbox(Survey);
+//widgets.select2(Survey, $);
 widgets.inputmask(Survey);
 widgets.jquerybarrating(Survey, $);
 widgets.jqueryuidatepicker(Survey, $);
@@ -44,8 +46,9 @@ widgets.ckeditor(Survey);
 widgets.autocomplete(Survey, $);
 widgets.bootstrapslider(Survey);
 
-widgets.icheck(SurveyCore, $);
-widgets.select2(SurveyCore, $);
+//widgets.icheck(SurveyCore, $);
+widgets.prettycheckbox(SurveyCore);
+//widgets.select2(SurveyCore, $);
 widgets.inputmask(SurveyCore);
 widgets.jquerybarrating(SurveyCore, $);
 widgets.jqueryuidatepicker(SurveyCore, $);
@@ -72,8 +75,17 @@ class App extends Component {
           {
             "type": "radiogroup",
             "name": "position",
-            "title": "Choose job position...",
+            "title": "Choose job position (iCheck)...",
             "isRequired": true,
+            "colCount": 0,
+            "choices": ["1|Designer", "2|Front-end Developer", "3|Back-end Developer", "4|Database Administrator", "5|System Engineer"]
+          },
+          {
+            "type": "radiogroup",
+            "name": "position-pc",
+            "title": "Choose job position (Pretty checkbox)...",
+            "isRequired": true,
+            "renderAs": "prettycheckbox",
             "colCount": 0,
             "choices": ["1|Designer", "2|Front-end Developer", "3|Back-end Developer", "4|Database Administrator", "5|System Engineer"]
           },

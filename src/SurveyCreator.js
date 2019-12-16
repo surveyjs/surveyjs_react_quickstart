@@ -16,14 +16,16 @@ import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
 import "jquery-bar-rating";
 
-import "icheck/skins/square/blue.css";
+//import "icheck/skins/square/blue.css";
+import "pretty-checkbox/dist/pretty-checkbox.css";
 
 import * as widgets from "surveyjs-widgets";
 
 SurveyJSCreator.StylesManager.applyTheme("default");
 
-widgets.icheck(SurveyKo, $);
-widgets.select2(SurveyKo, $);
+//widgets.icheck(SurveyKo, $);
+widgets.prettycheckbox(SurveyKo);
+//widgets.select2(SurveyKo, $);
 widgets.inputmask(SurveyKo);
 widgets.jquerybarrating(SurveyKo, $);
 widgets.jqueryuidatepicker(SurveyKo, $);
