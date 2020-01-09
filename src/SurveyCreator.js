@@ -25,7 +25,7 @@ SurveyJSCreator.StylesManager.applyTheme("default");
 
 //widgets.icheck(SurveyKo, $);
 widgets.prettycheckbox(SurveyKo);
-//widgets.select2(SurveyKo, $);
+widgets.select2(SurveyKo, $);
 widgets.inputmask(SurveyKo);
 widgets.jquerybarrating(SurveyKo, $);
 widgets.jqueryuidatepicker(SurveyKo, $);

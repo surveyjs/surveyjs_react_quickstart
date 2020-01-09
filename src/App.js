@@ -29,12 +29,11 @@ window["$"] = window["jQuery"] = $;
 
 export { MyQuestion } from "./MyQuestion";
 
-
 Survey.StylesManager.applyTheme("default");
 
 //widgets.icheck(Survey, $);
 widgets.prettycheckbox(Survey);
-//widgets.select2(Survey, $);
+widgets.select2(Survey, $);
 widgets.inputmask(Survey);
 widgets.jquerybarrating(Survey, $);
 widgets.jqueryuidatepicker(Survey, $);
@@ -48,7 +47,7 @@ widgets.bootstrapslider(Survey);
 
 //widgets.icheck(SurveyCore, $);
 widgets.prettycheckbox(SurveyCore);
-//widgets.select2(SurveyCore, $);
+widgets.select2(SurveyCore, $);
 widgets.inputmask(SurveyCore);
 widgets.jquerybarrating(SurveyCore, $);
 widgets.jqueryuidatepicker(SurveyCore, $);
@@ -68,26 +67,63 @@ class App extends Component {
       {
         elements: [
           {
-            "type": "myquestion",
-            "name": "cq1",
-            "text": "Some Text"
+            type: "myquestion",
+            name: "cq1",
+            text: "Some Text"
           },
           {
-            "type": "radiogroup",
-            "name": "position",
-            "title": "Choose job position (iCheck)...",
-            "isRequired": true,
-            "colCount": 0,
-            "choices": ["1|Designer", "2|Front-end Developer", "3|Back-end Developer", "4|Database Administrator", "5|System Engineer"]
+            type: "tagbox",
+            name: "position-tags",
+            title: "Choose job positions (Select2 Tagbox)...",
+            choices: [
+              "1|Designer",
+              "2|Front-end Developer",
+              "3|Back-end Developer",
+              "4|Database Administrator",
+              "5|System Engineer"
+            ]
           },
           {
-            "type": "radiogroup",
-            "name": "position-pc",
-            "title": "Choose job position (Pretty checkbox)...",
-            "isRequired": true,
-            "renderAs": "prettycheckbox",
-            "colCount": 0,
-            "choices": ["1|Designer", "2|Front-end Developer", "3|Back-end Developer", "4|Database Administrator", "5|System Engineer"]
+            type: "dropdown",
+            name: "position-s2",
+            title: "Choose job position (Select2)...",
+            renderAs: "select2",
+            choices: [
+              "1|Designer",
+              "2|Front-end Developer",
+              "3|Back-end Developer",
+              "4|Database Administrator",
+              "5|System Engineer"
+            ]
+          },
+          {
+            type: "radiogroup",
+            name: "position",
+            title: "Choose job position (iCheck)...",
+            isRequired: true,
+            colCount: 0,
+            choices: [
+              "1|Designer",
+              "2|Front-end Developer",
+              "3|Back-end Developer",
+              "4|Database Administrator",
+              "5|System Engineer"
+            ]
+          },
+          {
+            type: "radiogroup",
+            name: "position-pc",
+            title: "Choose job position (Pretty checkbox)...",
+            isRequired: true,
+            renderAs: "prettycheckbox",
+            colCount: 0,
+            choices: [
+              "1|Designer",
+              "2|Front-end Developer",
+              "3|Back-end Developer",
+              "4|Database Administrator",
+              "5|System Engineer"
+            ]
           },
           {
             type: "barrating",
@@ -296,11 +332,11 @@ class App extends Component {
     console.log("Complete! " + result);
   }
 
-  savePDF = (model) => {
+  savePDF = model => {
     var surveyPDF = new SurveyPDF.SurveyPDF(this.json);
     surveyPDF.data = model.data;
     surveyPDF.save();
-  }
+  };
 
   render() {
     var model = new Survey.Model(this.json);
