@@ -43,7 +43,7 @@ Survey.Serializer.addClass(
   function() {
     return new MyQuestionModel("");
   },
-  "checkboxbase"
+  "question"
 );
 
 
