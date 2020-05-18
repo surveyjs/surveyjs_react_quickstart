@@ -42,13 +42,29 @@ class SurveyCreator extends Component {
   componentDidMount() {
     let options = { showEmbededSurveyTab: true };
     this.surveyCreator = new SurveyJSCreator.SurveyCreator(
-      "surveyCreatorContainer",
+      null,
       options
     );
     this.surveyCreator.saveSurveyFunc = this.saveMySurvey;
+    this.surveyCreator.tabs().push({
+      name: "survey-templates",
+      title: "My Custom Tab",
+      template: "custom-tab-survey-templates",
+      action: () => {
+          this.surveyCreator.makeNewViewActive("survey-templates");
+      },
+      data: {},
+    });
+    this.surveyCreator.render("surveyCreatorContainer");
   }
   render() {
-    return <div id="surveyCreatorContainer" />;
+    return (<div>
+      <script type="text/html" id="custom-tab-survey-templates">
+        {`<div id="test">TEST</div>`}
+      </script>
+
+      <div id="surveyCreatorContainer" />
+    </div>);
   }
   saveMySurvey = () => {
     console.log(JSON.stringify(this.surveyCreator.text));
