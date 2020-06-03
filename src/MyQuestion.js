@@ -2,9 +2,6 @@ import React from "react";
 import * as Survey from "survey-react";
 
 export class MyQuestionModel extends Survey.Question {
-  constructor(name) {
-    super(name);
-  }
   getType() {
     return "myquestion";
   }
@@ -18,9 +15,6 @@ export class MyQuestionModel extends Survey.Question {
 }
 
 export class MyQuestion extends Survey.SurveyElementBase {
-  constructor(props) {
-    super(props);
-  }
   get question() {
     return this.props.question;
   }

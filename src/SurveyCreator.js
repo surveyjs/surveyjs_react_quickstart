@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import * as SurveyJSCreator from "survey-creator";
 import * as SurveyKo from "survey-knockout";
+import * as SurveyJSCreator from "survey-creator";
 import "survey-creator/survey-creator.css";
 
 import "jquery-ui/themes/base/all.css";
