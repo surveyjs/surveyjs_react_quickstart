@@ -12,7 +12,8 @@
     "survey-react": "latest",
     "survey-creator": "latest",
     "surveyjs-widgets": "latest",
-    "survey-pdf": "latest"
+    "survey-pdf": "latest",
+    "survey-analytics": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

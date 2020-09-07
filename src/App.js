@@ -1,15 +1,13 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./Home";
 import { CreatorPage } from "./Creator";
 import { SurveyPage } from "./Survey";
 import { ExportToPDFPage } from "./Export";
+import { AnalyticsPage } from "./Analytics";
+import { AnalyticsTabulatorPage } from "./AnalyticsTabulator";
+import { AnalyticsDatatablesPage } from "./AnalyticsDatatables";
 
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -20,7 +18,9 @@ export default function SurveyJSReactApplication() {
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/">SurveyJS + ReactJS</a>
+              <a className="navbar-brand" href="/">
+                SurveyJS + ReactJS
+              </a>
             </div>
             <ul className="nav navbar-nav">
               <li>
@@ -34,6 +34,17 @@ export default function SurveyJSReactApplication() {
               </li>
               <li>
                 <Link to="/export">Export to PDF</Link>
+              </li>
+              <li>
+                <Link to="/analytics">Analytics</Link>
+              </li>
+              <li>
+                <Link to="/analyticstabulator">Results Table</Link>
+              </li>
+              <li>
+                <Link to="/analyticsdatatables">
+                  Results Table (IE Support)
+                </Link>
               </li>
             </ul>
           </div>
@@ -51,6 +62,15 @@ export default function SurveyJSReactApplication() {
           </Route>
           <Route path="/export">
             <ExportToPDFPage />
+          </Route>
+          <Route path="/analytics">
+            <AnalyticsPage />
+          </Route>
+          <Route path="/analyticsdatatables">
+            <AnalyticsDatatablesPage />
+          </Route>
+          <Route path="/analyticstabulator">
+            <AnalyticsTabulatorPage />
           </Route>
         </Switch>
       </div>
