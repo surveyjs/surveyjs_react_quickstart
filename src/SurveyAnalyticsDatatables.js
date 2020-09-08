@@ -3,7 +3,6 @@ import { data, json } from "./analytics_data";
 import { DataTables } from "survey-analytics/survey.analytics.datatables.js";
 import * as Survey from "survey-react";
 import $ from "jquery";
-import "datatables.net";
 import "datatables.net/js/jquery.dataTables.js";
 import "datatables.net-dt/js/dataTables.dataTables.js";
 import "datatables.net-buttons/js/dataTables.buttons.js";
