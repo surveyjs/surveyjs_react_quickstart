@@ -9,11 +9,14 @@
     "react-dom": "^16.4.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "1.1.4",
-    "survey-react": "latest",
+    "survey-analytics": "latest",
     "survey-creator": "latest",
-    "surveyjs-widgets": "latest",
     "survey-pdf": "latest",
-    "survey-analytics": "latest"
+    "survey-react": "latest",
+    "surveyjs-widgets": "latest",
+    "xlsx": "^0.16.9",
+    "jspdf": "1.5.3",
+    "jspdf-autotable": "3.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
