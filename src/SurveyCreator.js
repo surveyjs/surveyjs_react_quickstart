@@ -12,7 +12,7 @@ import "jquery-bar-rating/dist/themes/css-stars.css";
 import "jquery-bar-rating/dist/themes/fontawesome-stars.css";
 
 import $ from "jquery";
-import "jquery-ui/ui/widgets/datepicker.js";
+// import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
 import "jquery-bar-rating";
 
@@ -20,6 +20,9 @@ import "jquery-bar-rating";
 import "pretty-checkbox/dist/pretty-checkbox.css";
 
 import * as widgets from "surveyjs-widgets";
+
+window["$"] = window["jQuery"] = $;
+require("jquery-ui/ui/widgets/datepicker.js");
 
 SurveyJSCreator.StylesManager.applyTheme("default");
 

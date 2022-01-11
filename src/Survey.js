@@ -11,7 +11,7 @@ import "bootstrap-slider/dist/css/bootstrap-slider.css";
 import "jquery-bar-rating/dist/themes/css-stars.css";
 
 import $ from "jquery";
-import "jquery-ui/ui/widgets/datepicker.js";
+//import "jquery-ui/ui/widgets/datepicker.js";
 import "select2/dist/js/select2.js";
 import "jquery-bar-rating";
 
@@ -21,6 +21,7 @@ import { json } from "./survey_json.js";
 
 //import "icheck/skins/square/blue.css";
 window["$"] = window["jQuery"] = $;
+require("jquery-ui/ui/widgets/datepicker.js");
 //require("icheck");
 
 export { MyQuestion } from "./MyQuestion";
