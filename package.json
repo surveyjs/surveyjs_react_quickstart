@@ -15,7 +15,7 @@
     "survey-pdf": "latest",
     "survey-analytics": "latest",
     "surveyjs-widgets": "latest",
-    "xlsx": "^0.16.9",
+    "xlsx": "^0.17.0",
     "jspdf": "1.5.3",
     "jspdf-autotable": "3.0.5"
   },
