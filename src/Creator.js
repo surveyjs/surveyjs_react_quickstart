@@ -1,11 +1,11 @@
 import React from "react";
-import SurveyCreator from "./SurveyCreator";
+import CreatorComponent from "./SurveyCreator";
 
 export function CreatorPage() {
     return (
       <div>
         <h2>Survey Creator - create a new survey</h2>
-        <SurveyCreator />
+        <CreatorComponent />
       </div>
     );
   }

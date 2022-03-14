@@ -1,13 +1,14 @@
 import React from "react";
 
-import $ from "jquery";
 
 import * as SurveyCore from "survey-core";
-import * as widgets from "surveyjs-widgets";
 import * as SurveyPDF from "survey-pdf";
 
 import { json } from "./survey_json.js";
 
+/* Export custom widgets
+import $ from "jquery";
+import * as widgets from "surveyjs-widgets";
 //widgets.icheck(SurveyCore, $);
 widgets.prettycheckbox(SurveyCore);
 widgets.select2(SurveyCore, $);
@@ -21,6 +22,7 @@ widgets.sortablejs(SurveyCore);
 widgets.ckeditor(SurveyCore);
 widgets.autocomplete(SurveyCore, $);
 widgets.bootstrapslider(SurveyCore);
+*/
 
 function savePDF(model) {
     var surveyPDF = new SurveyPDF.SurveyPDF(json);

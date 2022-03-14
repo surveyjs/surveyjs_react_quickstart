@@ -8,7 +8,7 @@ import "jspdf-autotable";
 
 
 import { Tabulator } from "survey-analytics/survey.analytics.tabulator.js";
-import * as Survey from "survey-react";
+import * as Survey from "survey-core";
 import "survey-analytics/survey.analytics.tabulator.css";
 import "tabulator-tables/dist/css/tabulator.min.css";
 

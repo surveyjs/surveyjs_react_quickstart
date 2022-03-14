@@ -1,5 +1,6 @@
 import React from "react";
-import * as Survey from "survey-react";
+import * as Survey from "survey-core";
+import * as SurveyReact from "survey-react-ui";
 
 export class MyQuestionModel extends Survey.Question {
   getType() {
@@ -14,7 +15,7 @@ export class MyQuestionModel extends Survey.Question {
   }
 }
 
-export class MyQuestion extends Survey.SurveyElementBase {
+export class MyQuestion extends SurveyReact.SurveyElementBase {
   get question() {
     return this.props.question;
   }
@@ -41,6 +42,6 @@ Survey.Serializer.addClass(
 );
 
 
-Survey.ReactQuestionFactory.Instance.registerQuestion("myquestion", props => {
+SurveyReact.ReactQuestionFactory.Instance.registerQuestion("myquestion", props => {
   return React.createElement(MyQuestion, props);
 });

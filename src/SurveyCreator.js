@@ -1,8 +1,18 @@
 import React, { Component } from "react";
-import * as SurveyKo from "survey-knockout";
-import * as SurveyJSCreator from "survey-creator";
-import "survey-creator/survey-creator.css";
+import * as Survey from "survey-core";
+import * as SurveyReact from "survey-react-ui";
+import * as SurveyCreatorCore from "survey-creator-core";
+import * as SurveyCreator from "survey-creator-react";
+//Import Survey localization
+import "survey-core/survey.i18n.js";
+//Import Survey Creator localization
+import "survey-creator-core/survey-creator-core.i18n.js";
 
+//Import Survey and Creator styles
+import "survey-core/defaultV2.css";
+import "survey-creator-core/survey-creator-core.css";
+
+/* Uncomment if you use custom widgets
 import "jquery-ui/themes/base/all.css";
 import "nouislider/distribute/nouislider.css";
 import "select2/dist/css/select2.css";
@@ -39,39 +49,26 @@ widgets.sortablejs(SurveyKo);
 widgets.ckeditor(SurveyKo);
 widgets.autocomplete(SurveyKo, $);
 widgets.bootstrapslider(SurveyKo);
+*/
 
-class SurveyCreator extends Component {
-  surveyCreator;
-  componentDidMount() {
-    let options = { showEmbededSurveyTab: true };
-    this.surveyCreator = new SurveyJSCreator.SurveyCreator(
-      null,
-      options
-    );
-    this.surveyCreator.saveSurveyFunc = this.saveMySurvey;
-    this.surveyCreator.tabs().push({
-      name: "survey-templates",
-      title: "My Custom Tab",
-      template: "custom-tab-survey-templates",
-      action: () => {
-          this.surveyCreator.makeNewViewActive("survey-templates");
-      },
-      data: {},
-    });
-    this.surveyCreator.render("surveyCreatorContainer");
+import { json } from "./survey_json.js";
+
+class CreatorComponent extends Component {
+  constructor() {
+    super();
+    const options = { showLogicTab: true };
+    this.creator = new SurveyCreator.SurveyCreator(options);
+    this.creator.saveSurveyFunc = this.saveMySurvey;
+    this.creator.JSON = json;
   }
   render() {
     return (<div>
-      <script type="text/html" id="custom-tab-survey-templates">
-        {`<div id="test">TEST</div>`}
-      </script>
-
-      <div id="surveyCreatorContainer" />
+      <SurveyCreator.SurveyCreatorComponent creator={this.creator} />
     </div>);
   }
   saveMySurvey = () => {
-    console.log(JSON.stringify(this.surveyCreator.text));
+    console.log(JSON.stringify(this.creator.text));
   };
 }
 
-export default SurveyCreator;
+export default CreatorComponent;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { data, json } from "./analytics_data";
 import { DataTables } from "survey-analytics/survey.analytics.datatables.js";
-import * as Survey from "survey-react";
+import * as Survey from "survey-core";
 import $ from "jquery";
 import "datatables.net/js/jquery.dataTables.js";
 import "datatables.net-dt/js/dataTables.dataTables.js";
