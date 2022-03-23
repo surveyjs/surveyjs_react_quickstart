@@ -36,19 +36,19 @@ require("jquery-ui/ui/widgets/datepicker.js");
 
 SurveyJSCreator.StylesManager.applyTheme("default");
 
-//widgets.icheck(SurveyKo, $);
-widgets.prettycheckbox(SurveyKo);
-widgets.select2(SurveyKo, $);
-widgets.inputmask(SurveyKo);
-widgets.jquerybarrating(SurveyKo, $);
-widgets.jqueryuidatepicker(SurveyKo, $);
-widgets.nouislider(SurveyKo);
-widgets.select2tagbox(SurveyKo, $);
-//widgets.signaturepad(SurveyKo);
-widgets.sortablejs(SurveyKo);
-widgets.ckeditor(SurveyKo);
-widgets.autocomplete(SurveyKo, $);
-widgets.bootstrapslider(SurveyKo);
+//widgets.icheck(Survey, $);
+widgets.prettycheckbox(Survey);
+widgets.select2(Survey, $);
+widgets.inputmask(Survey);
+widgets.jquerybarrating(Survey, $);
+widgets.jqueryuidatepicker(Survey, $);
+widgets.nouislider(Survey);
+widgets.select2tagbox(Survey, $);
+//widgets.signaturepad(Survey);
+widgets.sortablejs(Survey);
+widgets.ckeditor(Survey);
+widgets.autocomplete(Survey, $);
+widgets.bootstrapslider(Survey);
 */
 
 import { json } from "./survey_json.js";
