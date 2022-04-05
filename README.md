@@ -15,41 +15,71 @@ You can find the detailed information on how to perform common tasks in [this gu
 
 ## Add survey component on your page
 ```JavaScript
-//In your react App.js or yourComponent.js file add these lines to import
-import * as Survey from "survey-react";
-import "survey-react/survey.css";
+import React, { Component } from "react";
+import * as Survey from "survey-core";
+import * as SurveyReact from "survey-react-ui";
+//Import localization
+import "survey-core/survey.i18n.js";
+//Import Survey styles
+import "survey-core/defaultV2.css";
 
-class App extends Component {
- //Define Survey JSON
- //Here is the simplest Survey with one text question
- json = {
-  elements: [
-   { type: "text", name: "customerName", title: "What is your name?", isRequired: true}
-  ]
- };
-
- //Define a callback methods on survey complete
- onComplete(survey, options) {
-  //Write survey results into database
-  console.log("Survey results: " + JSON.stringify(survey.data));
- }
- render() {
-  //Create the model and pass it into react Survey component
-  //You may create survey model outside the render function and use it in your App or component
-  //The most model properties are reactive, on their change the component will change UI when needed.
-  var model = new Survey.Model(this.json);
-  return (<Survey.Survey model={model} onComplete={this.onComplete}/>);
-  /*
-  //The alternative way. react Survey component will create survey model internally
-  return (<Survey.Survey json={this.json} onComplete={this.onComplete}/>);
-  */
-  //You may pass model properties directly into component or set it into model
-  // <Survey.Survey model={model} mode="display"/>
-  //or 
-  // model.mode="display"
-  // <Survey.Survey model={model}/>
-  // You may change model properties outside render function. 
-  //If needed react Survey Component will change its behavior and change UI.
- }
+class SurveyComponent extends Component {
+    constructor() {
+        super();
+        const json = {
+            elements: [
+                { type: "text", name: "customerName", title: "What is your name?", isRequired: true }
+            ]
+        };
+        this.survey = new Survey.Model(json);
+        this.survey.onValueChanged.add((sender, options) => {
+        console.log("value changed!");
+        });
+        this.survey.onComplete.add((sender, options) => {
+        console.log("Complete! Response:" +  JSON.stringify(sender.data));
+        });
+    }
+    render() {
+        return <SurveyReact.Survey model={this.survey} />;
+    }
 } 
+```
+## Add creator component on your page
+```JavaScript
+import React, { Component } from "react";
+import * as Survey from "survey-core";
+import * as SurveyReact from "survey-react-ui";
+import * as SurveyCreatorCore from "survey-creator-core";
+import * as SurveyCreator from "survey-creator-react";
+//Import Survey localization
+import "survey-core/survey.i18n.js";
+//Import Survey Creator localization
+import "survey-creator-core/survey-creator-core.i18n.js";
+
+//Import Survey and Creator styles
+import "survey-core/defaultV2.css";
+import "survey-creator-core/survey-creator-core.css";
+
+class CreatorComponent extends Component {
+  constructor() {
+    super();
+    const json = {
+        elements: [
+            { type: "text", name: "customerName", title: "What is your name?", isRequired: true }
+        ]
+    };
+    const options = { showLogicTab: true };
+    this.creator = new SurveyCreator.SurveyCreator(options);
+    this.creator.saveSurveyFunc = this.saveMySurvey;
+    this.creator.JSON = json;
+  }
+  render() {
+    return (<div>
+      <SurveyCreator.SurveyCreatorComponent creator={this.creator} />
+    </div>);
+  }
+  saveMySurvey = () => {
+    console.log(JSON.stringify(this.creator.text));
+  };
+}
 ```
