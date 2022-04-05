@@ -7,14 +7,14 @@ import "survey-creator-core/survey-creator-core.css";
 
 // Survey.StylesManager.applyTheme("defaultV2");
 
-export default function SurveyCreator() {
+export default function SurveyCreator(props) {
   let [creator, setCreator] = useState();
 
-  if (creator == undefined) {
+  if (creator === undefined) {
     let options = { showEmbededSurveyTab: true, showLogicTab: true, showTranslationTab: true };
     creator = new SurveyCreatorReact.SurveyCreator(options);
     creator.saveSurveyFunc = (no, callback) => {
-      console.log(JSON.stringify(creator.text));
+      console.log(JSON.stringify(creator.JSON));
       callback(no, true);
     };
     // this.creator.tabs().push({
@@ -28,6 +28,8 @@ export default function SurveyCreator() {
     // });
     setCreator(creator);
   }
+
+  creator.JSON = props.json;
 
   return (<div style={{ height: "calc(100% - 70px)" }}>
     {/* <script type="text/html" id="custom-tab-survey-templates">

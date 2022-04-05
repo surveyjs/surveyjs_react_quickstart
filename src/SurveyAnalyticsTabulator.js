@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { data, json } from "./analytics_data";
 
-import * as jsPDF from "jspdf";
+import jsPDF from "jspdf";
 import * as XLSX from "xlsx";
 import "jspdf-autotable";
 
