@@ -1,85 +1,49 @@
-# React quickstart boilerplate for SurveyJS: Survey Library and Survey Creator 
+# SurveyJS + React Quickstart Template 
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+SurveyJS is a set of JavaScript components that allow you and your users to build surveys / forms, store them in your database, and visualize survey results for data analysis. This quick start template is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and uses the following SurveyJS components:
 
-## How to run this sample application
- - git clone https://github.com/surveyjs/surveyjs_react_quickstart.git
- - cd surveyjs_react_quickstart
- - npm i
- - npm start
- - open http://localhost:3000/ in your web browser
+- [SurveyJS Library / Runner](https://surveyjs.io/Documentation/Library?id=LibraryOverview)
+- [Survey Creator / Form Builder](https://surveyjs.io/Documentation/Survey-Creator?id=Survey-Creator-Overview)
+- [PDF Export](https://surveyjs.io/Documentation/Pdf-Export?id=PdfExportOverview)
+- [Survey Analytics](https://surveyjs.io/Documentation/Analytics?id=AnalyticsOverview)
 
+## Run the application
 
-
-You can find the detailed information on how to perform common tasks in [this guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-## Add survey component on your page
-```JavaScript
-import React, { Component } from "react";
-import * as Survey from "survey-core";
-import * as SurveyReact from "survey-react-ui";
-//Import localization
-import "survey-core/survey.i18n.js";
-//Import Survey styles
-import "survey-core/defaultV2.css";
-
-class SurveyComponent extends Component {
-    constructor() {
-        super();
-        const json = {
-            elements: [
-                { type: "text", name: "customerName", title: "What is your name?", isRequired: true }
-            ]
-        };
-        this.survey = new Survey.Model(json);
-        this.survey.onValueChanged.add((sender, options) => {
-        console.log("value changed!");
-        });
-        this.survey.onComplete.add((sender, options) => {
-        console.log("Complete! Response:" +  JSON.stringify(sender.data));
-        });
-    }
-    render() {
-        return <SurveyReact.Survey model={this.survey} />;
-    }
-} 
+```bash
+git clone https://github.com/surveyjs/surveyjs_react_quickstart.git
+cd surveyjs_react_quickstart
+npm i
+npm run start
 ```
-## Add creator component on your page
-```JavaScript
-import React, { Component } from "react";
-import * as Survey from "survey-core";
-import * as SurveyReact from "survey-react-ui";
-import * as SurveyCreatorCore from "survey-creator-core";
-import * as SurveyCreator from "survey-creator-react";
-//Import Survey localization
-import "survey-core/survey.i18n.js";
-//Import Survey Creator localization
-import "survey-creator-core/survey-creator-core.i18n.js";
 
-//Import Survey and Creator styles
-import "survey-core/defaultV2.css";
-import "survey-creator-core/survey-creator-core.css";
+Open http://localhost:3000/ in your web browser.
 
-class CreatorComponent extends Component {
-  constructor() {
-    super();
-    const json = {
-        elements: [
-            { type: "text", name: "customerName", title: "What is your name?", isRequired: true }
-        ]
-    };
-    const options = { showLogicTab: true };
-    this.creator = new SurveyCreator.SurveyCreator(options);
-    this.creator.saveSurveyFunc = this.saveMySurvey;
-    this.creator.JSON = json;
-  }
-  render() {
-    return (<div>
-      <SurveyCreator.SurveyCreatorComponent creator={this.creator} />
-    </div>);
-  }
-  saveMySurvey = () => {
-    console.log(JSON.stringify(this.creator.text));
-  };
-}
-```
+## Template structure
+
+This template covers most basic use cases. You can find code examples for them in the following files:
+
+- Create a standalone survey
+  - [src/data/survey_json.js](src/data/survey_json.js)
+  - [src/pages/Survey.js](src/pages/Survey.js)
+- Add Survey Creator to a page
+  - [src/components/SurveyCreator.js](src/components/SurveyCreator.js)
+  - [src/pages/Creator.js](src/pages/Creator.js)
+- Export a survey to a PDF document
+  - [src/pages/Export.js](src/pages/Export.js)
+- Visualize survey results
+  - As charts
+    - [src/data/analytics_data.js](src/data/analytics_data.js)
+    - [src/components/SurveyAnalytics.js](src/components/SurveyAnalytics.js)
+    - [src/pages/Analytics.js](src/pages/Analytics.js)
+  - As a table (modern browsers)
+    - [src/data/analytics_data.js](src/data/analytics_data.js)
+    - [src/components/SurveyAnalyticsTabulator.js](src/components/SurveyAnalyticsTabulator.js)
+    - [src/pages/AnalyticsTabulator.js](src/pages/AnalyticsTabulator.js)
+  - As a table (old browsers)
+    - [src/data/analytics_data.js](src/data/analytics_data.js)
+    - [src/components/SurveyAnalyticsDatatables.js](src/components/SurveyAnalyticsDatatables.js)
+    - [src/pages/AnalyticsDatatables.js](src/pages/AnalyticsDatatables.js)
+- Create a custom question type
+  - [src/components/MyQuestion.js](src/components/MyQuestion.js)
+- Register third-party components
+  - [src/App.js](src/App.js#L37)
