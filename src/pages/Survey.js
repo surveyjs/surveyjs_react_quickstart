@@ -19,7 +19,7 @@ export function SurveyPage() {
   const model = new Model(json);
   return (
     <div className="container">
-      <h2>SurveyJS Library / Runner</h2>
+      <h1>SurveyJS Library / Runner</h1>
       <Survey
         model={model}
         onComplete={onComplete}

@@ -10,7 +10,7 @@ export default function SurveyCreatorWidget(props) {
   let [creator, setCreator] = useState();
 
   if (creator === undefined) {
-    let options = { showEmbededSurveyTab: true, showLogicTab: true, showTranslationTab: true };
+    let options = { showLogicTab: true, showTranslationTab: true };
     creator = new SurveyCreator(options);
     creator.saveSurveyFunc = (no, callback) => {
       console.log(JSON.stringify(creator.JSON));
