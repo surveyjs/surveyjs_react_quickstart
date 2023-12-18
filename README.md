@@ -2,10 +2,10 @@
 
 SurveyJS is a set of JavaScript components that allow you and your users to build surveys / forms, store them in your database, and visualize survey results for data analysis. This quick start template is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and uses the following SurveyJS components:
 
-- [SurveyJS Library / Runner](https://surveyjs.io/Documentation/Library?id=LibraryOverview)
-- [Survey Creator / Form Builder](https://surveyjs.io/Documentation/Survey-Creator?id=Survey-Creator-Overview)
-- [PDF Export](https://surveyjs.io/Documentation/Pdf-Export?id=PdfExportOverview)
-- [Survey Analytics](https://surveyjs.io/Documentation/Analytics?id=AnalyticsOverview)
+- [SurveyJS Form Library](https://surveyjs.io/form-library/documentation/overview)
+- [Survey Creator / Form Builder](https://surveyjs.io/survey-creator/documentation/overview)
+- [SurveyJS PDF Generator](https://surveyjs.io/pdf-generator/documentation/overview)
+- [SurveyJS Dashboard](https://surveyjs.io/dashboard/documentation/overview)
 
 ## Run the application
 
