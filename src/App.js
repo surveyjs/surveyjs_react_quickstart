@@ -6,7 +6,6 @@ import { SurveyPage } from "./pages/Survey";
 import { ExportToPDFPage } from "./pages/Export";
 import { AnalyticsPage } from "./pages/Analytics";
 import { AnalyticsTabulatorPage } from "./pages/AnalyticsTabulator";
-import { AnalyticsDatatablesPage } from "./pages/AnalyticsDatatables";
 
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -42,11 +41,6 @@ export default function SurveyJSReactApplication() {
               <li>
                 <Link to="/analyticstabulator">Results Table</Link>
               </li>
-              <li>
-                <Link to="/analyticsdatatables">
-                  Results Table (IE Support)
-                </Link>
-              </li>
             </ul>
           </div>
         </nav>
@@ -67,9 +61,6 @@ export default function SurveyJSReactApplication() {
             </Route>
             <Route path="/analytics">
               <AnalyticsPage />
-            </Route>
-            <Route path="/analyticsdatatables">
-              <AnalyticsDatatablesPage />
             </Route>
             <Route path="/analyticstabulator">
               <AnalyticsTabulatorPage />
