@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jspdf": "1.5.3",
+    "jspdf": "3.0.1",
     "jspdf-autotable": "3.0.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
