@@ -1,4 +1,6 @@
-# SurveyJS + React Quickstart Template 
+# (Obsolete) SurveyJS + React Quickstart Template 
+
+> This template is built using [Create React App](https://github.com/facebook/create-react-app), which is now deprecated. Use the [SurveyJS + Next.js quickstart template](https://github.com/surveyjs/surveyjs-nextjs) instead. 
 
 SurveyJS is a set of JavaScript components that allow you and your users to build surveys / forms, store them in your database, and visualize survey results for data analysis. This quick start template is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and uses the following SurveyJS components:
 
@@ -35,14 +37,10 @@ This template covers most basic use cases. You can find code examples for them i
     - [src/data/analytics_data.js](src/data/analytics_data.js)
     - [src/components/SurveyAnalytics.js](src/components/SurveyAnalytics.js)
     - [src/pages/Analytics.js](src/pages/Analytics.js)
-  - As a table (modern browsers)
+  - As a table
     - [src/data/analytics_data.js](src/data/analytics_data.js)
     - [src/components/SurveyAnalyticsTabulator.js](src/components/SurveyAnalyticsTabulator.js)
     - [src/pages/AnalyticsTabulator.js](src/pages/AnalyticsTabulator.js)
-  - As a table (old browsers)
-    - [src/data/analytics_data.js](src/data/analytics_data.js)
-    - [src/components/SurveyAnalyticsDatatables.js](src/components/SurveyAnalyticsDatatables.js)
-    - [src/pages/AnalyticsDatatables.js](src/pages/AnalyticsDatatables.js)
 - Create a custom question type
   - [src/components/MyQuestion.js](src/components/MyQuestion.js)
 - Register third-party components
