@@ -1,0 +1,36 @@
+resources:
+  pipelines:
+    - pipeline: ReleaseVersion
+      source: Release Version
+      trigger: true
+
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+  CurrentBranch: $(Build.SourceBranchName)
+  ProjectId: '2cf848f9-83d5-4ec4-b2e3-ef3321ccc99f'
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - V3
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: "16.x"
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- script: |
+    npm run test -- --watchAll=false
+  displayName: 'run unit tests'
