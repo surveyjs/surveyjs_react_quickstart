@@ -1,7 +1,10 @@
 resources:
   pipelines:
     - pipeline: ReleaseVersion
-      source: Release Version
+      source: Set Custom Release Version
+      trigger: true
+    - pipeline: RunRelease
+      source: Run Release
       trigger: true
 
 variables:
