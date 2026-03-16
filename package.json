@@ -14,7 +14,7 @@
     "survey-core": "^1.12.26",
     "survey-creator-core": "^1.12.26",
     "survey-creator-react": "^1.12.26",
-    "survey-pdf": "^1.12.26",
+    "survey-pdf": "^1.12.59",
     "survey-react-ui": "^1.12.26",
     "xlsx": "^0.18.5"
   },
