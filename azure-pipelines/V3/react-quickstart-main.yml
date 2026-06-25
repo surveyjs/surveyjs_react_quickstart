@@ -1,9 +1,3 @@
-resources:
-  pipelines:
-    - pipeline: ReleaseVersion
-      source: Release Version
-      trigger: true
-
 variables:
   npm_config_cache: $(Pipeline.Workspace)/.npm
   CurrentBranch: $(Build.SourceBranchName)
